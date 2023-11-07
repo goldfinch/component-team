@@ -44,6 +44,7 @@ class TeamItem extends NestedObject
 
     private static $owns = [
         'Image',
+        'Roles',
     ];
 
     private static $summary_fields = [
