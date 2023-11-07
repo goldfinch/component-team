@@ -1,3 +1,6 @@
 ---
 Name: goldfinch-component-team
 ---
+Goldfinch\Component\Team\Admin\TeamAdmin:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BlocksAdminExtension
