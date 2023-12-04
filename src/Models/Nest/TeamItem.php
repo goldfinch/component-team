@@ -2,13 +2,15 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Component\Team\Pages\Nest\Team;
-use Goldfinch\Component\Team\Models\Nest\TeamRole;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Director;
 use SilverStripe\TagField\TagField;
 use SilverStripe\Forms\TextareaField;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Component\Team\Admin\TeamAdmin;
+use Goldfinch\Component\Team\Pages\Nest\Team;
+use Goldfinch\Component\Team\Models\Nest\TeamRole;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
 
@@ -95,6 +97,29 @@ class TeamItem extends NestedObject
             ]
         );
         return $fields;
+    }
+
+    // TODO: check if SortOrder exists
+    public function nextItem()
+    {
+        return TeamItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+    }
+
+    // TODO: check if SortOrder exists
+    public function previousItem()
+    {
+        return TeamItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+    }
+
+    public function OtherItems()
+    {
+        return TeamItem::get()->filter('ID:not', $this->ID)->limit(6);
+    }
+
+    public function CMSEditLink()
+    {
+        $admin = new TeamAdmin;
+        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
     }
 
     // public function validate()
