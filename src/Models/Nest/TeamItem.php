@@ -26,6 +26,7 @@ class TeamItem extends NestedObject
     private static $plural_name = 'members';
 
     private static $db = [
+        'SortOrder' => 'Int',
         'Summary' => 'Text',
         'Text' => 'HTMLText',
     ];
@@ -57,7 +58,7 @@ class TeamItem extends NestedObject
     // private static $belongs_to = [];
     // private static $has_many = [];
     // private static $belongs_many_many = [];
-    // private static $default_sort = null;
+    private static $default_sort = 'SortOrder';
     // private static $indexes = null;
     // private static $owns = [];
     // private static $casting = [];
@@ -81,6 +82,7 @@ class TeamItem extends NestedObject
         $fields = parent::getCMSFields();
 
         $fields->removeByName([
+            'SortOrder',
             'Roles',
         ]);
 
@@ -99,19 +101,17 @@ class TeamItem extends NestedObject
         return $fields;
     }
 
-    // TODO: check if SortOrder exists
-    public function nextItem()
+    public function getNextItem()
     {
         return TeamItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
     }
 
-    // TODO: check if SortOrder exists
-    public function previousItem()
+    public function getPreviousItem()
     {
         return TeamItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
     }
 
-    public function OtherItems()
+    public function getOtherItems()
     {
         return TeamItem::get()->filter('ID:not', $this->ID)->limit(6);
     }
