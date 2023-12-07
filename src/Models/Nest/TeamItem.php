@@ -26,7 +26,6 @@ class TeamItem extends NestedObject
     private static $plural_name = 'members';
 
     private static $db = [
-        'SortOrder' => 'Int',
         'Summary' => 'Text',
         'Text' => 'HTMLText',
     ];
@@ -58,7 +57,7 @@ class TeamItem extends NestedObject
     // private static $belongs_to = [];
     // private static $has_many = [];
     // private static $belongs_many_many = [];
-    private static $default_sort = 'SortOrder';
+    // private static $default_sort = null;
     // private static $indexes = null;
     // private static $owns = [];
     // private static $casting = [];

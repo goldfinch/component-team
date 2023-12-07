@@ -1,0 +1,11 @@
+---
+Name: goldfinch-component-team-sortable
+---
+
+Goldfinch\Component\Team\Models\Nest\TeamItem:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
+
+Goldfinch\Component\Team\Models\Nest\TeamRole:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
