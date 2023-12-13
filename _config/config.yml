@@ -13,3 +13,10 @@ Only:
 
 Goldfinch\Component\Team\Admin\TeamAdmin:
   menu_icon_class: 'bi-person-badge-fill'
+
+Goldfinch\Component\Team\Pages\Nest\Team:
+  icon_class: 'bi-person-badge-fill'
+
+Goldfinch\Component\Team\Blocks\TeamBlock:
+  icon: 'bi-person-badge-fill'
+

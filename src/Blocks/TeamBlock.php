@@ -20,7 +20,7 @@ class TeamBlock extends BaseElement
 
     private static $inline_editable = false;
     private static $description = '';
-    private static $icon = 'bi-person-badge-fill';
+    private static $icon = 'font-icon-block-users';
     // private static $disable_pretty_anchor_name = false;
     // private static $displays_title_in_template = true;
 

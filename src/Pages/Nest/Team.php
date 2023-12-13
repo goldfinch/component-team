@@ -10,5 +10,5 @@ class Team extends Nest
     private static $table_name = 'Team';
     private static $controller_name = TeamController::class;
 
-    private static $icon_class = 'bi-person-badge-fill';
+    private static $icon_class = 'font-icon-block-users';
 }
