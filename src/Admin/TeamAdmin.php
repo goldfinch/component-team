@@ -16,7 +16,7 @@ class TeamAdmin extends ModelAdmin
 
     private static $url_segment = 'team';
     private static $menu_title = 'Team';
-    private static $menu_icon_class = 'bi-person-badge-fill';
+    private static $menu_icon_class = 'font-icon-block-users';
     // private static $menu_priority = -0.5;
 
     private static $managed_models = [

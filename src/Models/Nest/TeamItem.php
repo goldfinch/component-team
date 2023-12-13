@@ -36,7 +36,7 @@ class TeamItem extends NestedObject
 
     private static $many_many_extraFields = [
         'Roles' => [
-            'SortOrder' => 'Int',
+            'SortExtra' => 'Int',
         ],
     ];
 
