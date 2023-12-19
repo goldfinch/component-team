@@ -97,6 +97,9 @@ class TeamItem extends NestedObject
                 ],
             ]
         );
+
+        $fields->dataFieldByName('Image')->setFolderName('team');
+
         return $fields;
     }
 
