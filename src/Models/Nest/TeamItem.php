@@ -12,7 +12,7 @@ use Goldfinch\Component\Team\Admin\TeamAdmin;
 use Goldfinch\Component\Team\Pages\Nest\Team;
 use Goldfinch\Component\Team\Models\Nest\TeamRole;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
+use Goldfinch\ImageEditor\Forms\EditableUploadField;
 
 class TeamItem extends NestedObject
 {
@@ -88,7 +88,7 @@ class TeamItem extends NestedObject
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                ...UploadFieldWithExtra::create('Image', 'Image', $fields, $this)->getFields(),
+                ...EditableUploadField::create('Image', 'Image', $fields, $this)->getFields(),
                 ...[
                     TextField::create('Title', 'Name'),
                     TextareaField::create('Summary', 'Summary'),
