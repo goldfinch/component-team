@@ -1,0 +1,19 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-team"
+---
+Goldfinch\Component\Team\Models\Nest\TeamItem:
+  extensions:
+    - {{ namespace }}\TeamItemExtension
+
+Goldfinch\Component\Team\Models\Nest\TeamRole:
+  extensions:
+    - {{ namespace }}\TeamRoleExtension
+
+Goldfinch\Component\Team\Configs\TeamConfig:
+  extensions:
+    - {{ namespace }}\TeamConfigExtension
+
+Goldfinch\Component\Team\Blocks\TeamBlock:
+  extensions:
+    - {{ namespace }}\TeamBlockExtension
