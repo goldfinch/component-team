@@ -58,7 +58,7 @@ class TeamItem extends NestedObject
             'Root.Main' => [
                 ...$harvest->media('Image'),
                 $harvest->string('Title', 'Name'),
-                $harvest->textarea('Summary'),
+                $harvest->text('Summary'),
                 $harvest->html('Text'),
                 $harvest->tag('Roles'),
             ],
