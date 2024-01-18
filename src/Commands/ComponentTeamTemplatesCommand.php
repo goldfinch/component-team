@@ -18,8 +18,6 @@ class ComponentTeamTemplatesCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        // parent::execute($input, $output);
-
         $io = new InputOutput($input, $output);
 
         $themes = Finder::create()
@@ -63,6 +61,8 @@ class ComponentTeamTemplatesCommand extends GeneratorCommand
 
             return Command::SUCCESS;
         }
+
+        return Command::FAILURE;
     }
 
     private function copyTemplates($theme)
@@ -75,7 +75,7 @@ class ComponentTeamTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Team/Blocks/TeamBlock.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -83,7 +83,7 @@ class ComponentTeamTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Team/Models/Nest/TeamItem.ss',
-        ); // , true);
+        );
 
         $fs->copy(
             BASE_PATH .
@@ -91,6 +91,6 @@ class ComponentTeamTemplatesCommand extends GeneratorCommand
             'themes/' .
                 $theme .
                 '/templates/Goldfinch/Component/Team/Pages/Nest/Team.ss',
-        ); // , true);
+        );
     }
 }
