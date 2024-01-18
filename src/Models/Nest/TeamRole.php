@@ -2,9 +2,11 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Component\Team\Models\Nest\TeamItem;
+use Goldfinch\Harvest\Harvest;
 use SilverStripe\Forms\TextField;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Component\Team\Models\Nest\TeamItem;
 
 class TeamRole extends NestedObject
 {
