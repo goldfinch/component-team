@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Team\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-team-teamblock')]
+#[AsCommand(name: 'vendor:vendor:component-team:teamblock')]
 class TeamBlockExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-team-teamblock';
+    protected static $defaultName = 'vendor:vendor:component-team:teamblock';
 
     protected $description = 'Create TeamBlock extension';
 

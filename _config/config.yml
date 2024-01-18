@@ -5,7 +5,7 @@ Goldfinch\Component\Team\Admin\TeamAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
 ---
-Name: goldfinch-component-team-icon
+Name: goldfinch-vendor:component-team:icon
 Only:
   moduleexists: "goldfinch/enchantment"
 ---

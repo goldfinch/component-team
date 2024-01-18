@@ -1,5 +1,5 @@
 ---
-Name: goldfinch-component-team-sortable
+Name: goldfinch-vendor:component-team:sortable
 ---
 Goldfinch\Component\Team\Models\Nest\TeamItem:
   extensions:

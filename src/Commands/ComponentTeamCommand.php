@@ -16,34 +16,34 @@ class ComponentTeamCommand extends GeneratorCommand
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
-            'vendor:component-team-teamitem',
+            'vendor:vendor:component-team:teamitem',
         );
         $input = new ArrayInput(['name' => 'TeamItem']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-team-teamrole',
+            'vendor:vendor:component-team:teamrole',
         );
         $input = new ArrayInput(['name' => 'TeamRole']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-team-teamconfig',
+            'vendor:vendor:component-team:teamconfig',
         );
         $input = new ArrayInput(['name' => 'TeamConfig']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-team-teamblock',
+            'vendor:vendor:component-team:teamblock',
         );
         $input = new ArrayInput(['name' => 'TeamBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('templates:component-team');
+        $command = $this->getApplication()->find('vendor:vendor:component-team:templates');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('config:component-team');
+        $command = $this->getApplication()->find('vendor:vendor:component-team:config');
         $input = new ArrayInput(['name' => 'component-team']);
         $command->run($input, $output);
 
