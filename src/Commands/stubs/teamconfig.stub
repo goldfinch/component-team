@@ -4,16 +4,16 @@ After: "goldfinch/component-team"
 ---
 Goldfinch\Component\Team\Models\Nest\TeamItem:
   extensions:
-    - {{ namespace }}\TeamItemExtension
+    - {{ namespace_root }}TeamItemExtension
 
 Goldfinch\Component\Team\Models\Nest\TeamRole:
   extensions:
-    - {{ namespace }}\TeamRoleExtension
+    - {{ namespace_root }}TeamRoleExtension
 
 Goldfinch\Component\Team\Configs\TeamConfig:
   extensions:
-    - {{ namespace }}\TeamConfigExtension
+    - {{ namespace_root }}TeamConfigExtension
 
 Goldfinch\Component\Team\Blocks\TeamBlock:
   extensions:
-    - {{ namespace }}\TeamBlockExtension
+    - {{ namespace_root }}TeamBlockExtension
