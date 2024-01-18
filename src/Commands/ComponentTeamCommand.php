@@ -39,9 +39,7 @@ class ComponentTeamCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'TeamBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find(
-            'templates:component-team',
-        );
+        $command = $this->getApplication()->find('templates:component-team');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

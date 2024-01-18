@@ -42,10 +42,7 @@ class TeamItem extends NestedObject
         'Image' => Image::class,
     ];
 
-    private static $owns = [
-        'Image',
-        'Roles',
-    ];
+    private static $owns = ['Image', 'Roles'];
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => 'Image',
@@ -72,22 +69,31 @@ class TeamItem extends NestedObject
 
     public function getNextItem()
     {
-        return TeamItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+        return TeamItem::get()
+            ->filter(['SortOrder:LessThan' => $this->SortOrder])
+            ->Sort('SortOrder DESC')
+            ->first();
     }
 
     public function getPreviousItem()
     {
-        return TeamItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+        return TeamItem::get()
+            ->filter(['SortOrder:GreaterThan' => $this->SortOrder])
+            ->first();
     }
 
     public function getOtherItems()
     {
-        return TeamItem::get()->filter('ID:not', $this->ID)->limit(6);
+        return TeamItem::get()
+            ->filter('ID:not', $this->ID)
+            ->limit(6);
     }
 
     public function CMSEditLink()
     {
-        $admin = new TeamAdmin;
-        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
+        $admin = new TeamAdmin();
+        return Director::absoluteBaseURL() .
+            '/' .
+            $admin->getCMSEditLinkForManagedDataObject($this);
     }
 }

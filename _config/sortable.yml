@@ -1,7 +1,6 @@
 ---
 Name: goldfinch-component-team-sortable
 ---
-
 Goldfinch\Component\Team\Models\Nest\TeamItem:
   extensions:
     - Goldfinch\Helpers\Extensions\DataObjectSortable

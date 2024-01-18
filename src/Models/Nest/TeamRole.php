@@ -30,9 +30,7 @@ class TeamRole extends NestedObject
         $harvest->require(['Title']);
 
         $harvest->fields([
-            'Root.Main' => [
-                $harvest->string('Title'),
-            ],
+            'Root.Main' => [$harvest->string('Title')],
         ]);
     }
 }

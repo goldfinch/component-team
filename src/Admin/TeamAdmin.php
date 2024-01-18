@@ -20,16 +20,16 @@ class TeamAdmin extends ModelAdmin
 
     private static $managed_models = [
         TeamItem::class => [
-            'title'=> 'Members',
+            'title' => 'Members',
         ],
         TeamRole::class => [
-            'title'=> 'Roles',
+            'title' => 'Roles',
         ],
         TeamBlock::class => [
-            'title'=> 'Blocks',
+            'title' => 'Blocks',
         ],
         TeamConfig::class => [
-            'title'=> 'Settings',
+            'title' => 'Settings',
         ],
     ];
 }
