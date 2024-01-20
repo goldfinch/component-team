@@ -14,10 +14,16 @@ class TeamConfig extends DataObject implements TemplateGlobalProvider
 
     private static $table_name = 'TeamConfig';
 
-    private static $db = [];
+    private static $db = [
+        'DisabledRoles' => 'Boolean',
+    ];
 
     public function harvest(Harvest $harvest): void
     {
-        // ..
+        $harvest->fields([
+            'Root.Main' => [
+                $harvest->checkbox('DisabledRoles', 'Disabled roles'),
+            ],
+        ]);
     }
 }

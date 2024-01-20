@@ -9,6 +9,7 @@ use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
 use Goldfinch\Component\Team\Admin\TeamAdmin;
 use Goldfinch\Component\Team\Pages\Nest\Team;
+use Goldfinch\Component\Team\Configs\TeamConfig;
 
 class TeamItem extends NestedObject
 {
@@ -65,6 +66,12 @@ class TeamItem extends NestedObject
         ]);
 
         $harvest->dataField('Image')->setFolderName('team');
+
+        $cfg = TeamConfig::current_config();
+
+        if ($cfg->DisabledRoles) {
+            $harvest->remove('Roles');
+        }
     }
 
     public function getNextItem()
