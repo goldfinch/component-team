@@ -57,11 +57,11 @@ class TeamItem extends NestedObject
 
         $harvest->fields([
             'Root.Main' => [
-                ...$harvest->media('Image'),
                 $harvest->string('Title', 'Name'),
+                ...$harvest->media('Image'),
+                $harvest->tag('Roles'),
                 $harvest->text('Summary'),
                 $harvest->html('Text'),
-                $harvest->tag('Roles'),
             ],
         ]);
 
