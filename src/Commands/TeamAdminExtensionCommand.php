@@ -5,18 +5,18 @@ namespace Goldfinch\Component\Team\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-team:ext:role')]
-class TeamRoleExtensionCommand extends GeneratorCommand
+#[AsCommand(name: 'vendor:component-team:ext:admin')]
+class TeamAdminExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-team:ext:role';
+    protected static $defaultName = 'vendor:component-team:ext:admin';
 
-    protected $description = 'Create TeamRole extension';
+    protected $description = 'Create TeamAdmin extension';
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-team category extension';
+    protected $type = 'extension';
 
-    protected $stub = './stubs/teamrole-extension.stub';
+    protected $stub = './stubs/teamadmin-extension.stub';
 
     protected $prefix = 'Extension';
 

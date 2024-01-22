@@ -1,0 +1,34 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-team"
+---
+Goldfinch\Component\Team\Admin\TeamAdmin:
+  # menu_icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}TeamAdminExtension
+
+Goldfinch\Component\Team\Pages\Nest\Team:
+  # icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}TeamExtension
+
+Goldfinch\Component\Team\Controllers\Nest\TeamController:
+  extensions:
+    - {{ namespace_root_extensions }}TeamControllerExtension
+
+Goldfinch\Component\Team\Configs\TeamConfig:
+  extensions:
+    - {{ namespace_root_extensions }}TeamConfigExtension
+
+Goldfinch\Component\Team\Blocks\TeamBlock:
+  # icon: ""
+  extensions:
+    - {{ namespace_root_extensions }}TeamBlockExtension
+
+Goldfinch\Component\Team\Models\Nest\TeamItem:
+  extensions:
+    - {{ namespace_root_extensions }}TeamItemExtension
+
+Goldfinch\Component\Team\Models\Nest\TeamRole:
+  extensions:
+    - {{ namespace_root_extensions }}TeamRoleExtension
