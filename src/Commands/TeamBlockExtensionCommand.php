@@ -14,7 +14,7 @@ class TeamBlockExtensionCommand extends GeneratorCommand
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-team block extension';
+    protected $type = 'extension';
 
     protected $stub = './stubs/teamblock-extension.stub';
 

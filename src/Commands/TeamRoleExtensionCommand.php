@@ -14,7 +14,7 @@ class TeamRoleExtensionCommand extends GeneratorCommand
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-team category extension';
+    protected $type = 'extension';
 
     protected $stub = './stubs/teamrole-extension.stub';
 
