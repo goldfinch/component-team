@@ -2,15 +2,15 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\Forms\TextField;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Team\Models\Nest\TeamItem;
 
 class TeamRole extends NestedObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -27,12 +27,12 @@ class TeamRole extends NestedObject
         'Items' => TeamItem::class,
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->fields([
-            'Root.Main' => [$harvest->string('Title')],
+        $fielder->fields([
+            'Root.Main' => [$fielder->string('Title')],
         ]);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Team\Admin\TeamAdmin;
 use Goldfinch\Component\Team\Pages\Nest\Team;
 use Goldfinch\Component\Team\Configs\TeamConfig;
 
 class TeamItem extends NestedObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -49,28 +49,28 @@ class TeamItem extends NestedObject
         'Image.CMSThumbnail' => 'Image',
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->remove(['SortOrder', 'Roles']);
+        $fielder->remove(['SortOrder', 'Roles']);
 
-        $harvest->fields([
+        $fielder->fields([
             'Root.Main' => [
-                $harvest->string('Title', 'Name'),
-                ...$harvest->media('Image'),
-                $harvest->tag('Roles'),
-                $harvest->text('Summary'),
-                $harvest->html('Text'),
+                $fielder->string('Title', 'Name'),
+                ...$fielder->media('Image'),
+                $fielder->tag('Roles'),
+                $fielder->text('Summary'),
+                $fielder->html('Text'),
             ],
         ]);
 
-        $harvest->dataField('Image')->setFolderName('team');
+        $fielder->dataField('Image')->setFolderName('team');
 
         $cfg = TeamConfig::current_config();
 
         if ($cfg->DisabledRoles) {
-            $harvest->remove('Roles');
+            $fielder->remove('Roles');
         }
     }
 
