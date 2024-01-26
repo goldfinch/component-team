@@ -13,6 +13,8 @@ class TeamSetCommand extends GeneratorCommand
 
     protected $description = 'Set of all [goldfinch/component-team] commands';
 
+    protected $no_arguments = true;
+
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
