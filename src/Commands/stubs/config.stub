@@ -13,6 +13,9 @@ Goldfinch\Component\Team\Pages\Nest\Team:
   extensions:
     - {{ namespace_root_extensions }}TeamExtension
 
+Goldfinch\Component\Team\Pages\Nest\TeamByRole:
+  # icon_class: ""
+
 Goldfinch\Component\Team\Controllers\Nest\TeamController:
   extensions:
     - {{ namespace_root_extensions }}TeamControllerExtension

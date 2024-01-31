@@ -1,0 +1,10 @@
+---
+Name: goldfinch-component-team-mill
+After: "goldfinch/mill"
+---
+Goldfinch\Mill\Mill:
+  millable:
+    Goldfinch\Component\Team\Mills\TeamMill: Goldfinch\Component\Team\Pages\Nest\Team
+    Goldfinch\Component\Team\Mills\TeamByRoleMill: Goldfinch\Component\Team\Pages\Nest\TeamByRole
+    Goldfinch\Component\Team\Mills\TeamRoleMill: Goldfinch\Component\Team\Models\Nest\TeamRole
+    Goldfinch\Component\Team\Mills\TeamItemMill: Goldfinch\Component\Team\Models\Nest\TeamItem

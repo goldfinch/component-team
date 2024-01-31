@@ -13,8 +13,8 @@ class TeamBlock extends BaseElement
     use FielderTrait;
 
     private static $table_name = 'TeamBlock';
-    private static $singular_name = 'Members';
-    private static $plural_name = 'Members';
+    private static $singular_name = 'Team';
+    private static $plural_name = 'Team';
 
     private static $db = [];
 

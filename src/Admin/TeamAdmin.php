@@ -44,7 +44,7 @@ class TeamAdmin extends ModelAdmin
         }
 
         if (!class_exists('DNADesign\Elemental\Models\BaseElement')) {
-            unset($models[TeamsBlock::class]);
+            unset($models[TeamBlock::class]);
         }
 
         if (empty($cfg->config('db')->db)) {

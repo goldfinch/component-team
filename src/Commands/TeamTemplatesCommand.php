@@ -22,8 +22,10 @@ class TeamTemplatesCommand extends GeneratorCommand
 
         if (is_string($theme)) {
 
-            $componentPath = BASE_PATH . '/vendor/goldfinch/component-team/templates/Goldfinch/Component/Team/';
-            $themePath = 'themes/' . $theme . '/templates/Goldfinch/Component/Team/';
+            $componentPathTemplates = BASE_PATH . '/vendor/goldfinch/component-team/templates/';
+            $componentPath = $componentPathTemplates . 'Goldfinch/Component/Team/';
+            $themeTemplates = 'themes/' . $theme . '/templates/';
+            $themePath = $themeTemplates . 'Goldfinch/Component/Team/';
 
             $files = [
                 [
@@ -35,8 +37,28 @@ class TeamTemplatesCommand extends GeneratorCommand
                     'to' => $themePath . 'Models/Nest/TeamItem.ss',
                 ],
                 [
+                    'from' => $componentPath . 'Models/Nest/TeamRole.ss',
+                    'to' => $themePath . 'Models/Nest/TeamRole.ss',
+                ],
+                [
                     'from' => $componentPath . 'Pages/Nest/Team.ss',
                     'to' => $themePath . 'Pages/Nest/Team.ss',
+                ],
+                [
+                    'from' => $componentPath . 'Pages/Nest/TeamByRole.ss',
+                    'to' => $themePath . 'Pages/Nest/TeamByRole.ss',
+                ],
+                [
+                    'from' => $componentPath . 'Partials/TeamFilter.ss',
+                    'to' => $themePath . 'Partials/TeamFilter.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Team/Models/Nest/TeamRole.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Team/Models/Nest/TeamRole.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Team/Models/Nest/TeamItem.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Team/Models/Nest/TeamItem.ss',
                 ],
             ];
 

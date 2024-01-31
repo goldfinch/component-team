@@ -3,18 +3,18 @@
 namespace Goldfinch\Component\Team\Models\Nest;
 
 use Goldfinch\Fielder\Fielder;
-use SilverStripe\Forms\TextField;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
-use Goldfinch\Component\Team\Models\Nest\TeamItem;
+use Goldfinch\Component\Team\Pages\Nest\TeamByRole;
 
 class TeamRole extends NestedObject
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
-    public static $nest_down = null;
+    public static $nest_down = TeamByRole::class;
     public static $nest_down_parents = [];
 
     private static $table_name = 'TeamRole';
@@ -34,5 +34,23 @@ class TeamRole extends NestedObject
         $fielder->fields([
             'Root.Main' => [$fielder->string('Title')],
         ]);
+    }
+
+    public function List()
+    {
+        // pagi/loadable ?
+
+        return $this->Items();
+    }
+
+    public function OtherRoles($type = 'mix', $limit = 6, $escapeEmpty = true)
+    {
+        $filter = ['ID:not' => $this->ID];
+
+        if ($escapeEmpty) {
+            $filter['Items.Count():GreaterThan'] = 0;
+        }
+
+        return TeamRole::get()->filter($filter)->shuffle()->limit($limit);
     }
 }

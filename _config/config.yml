@@ -5,7 +5,7 @@ Goldfinch\Component\Team\Admin\TeamAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
 ---
-Name: goldfinch-vendor:component-team:icon
+Name: goldfinch-component-team-icon
 Only:
   moduleexists: "goldfinch/enchantment"
 ---
@@ -14,6 +14,9 @@ Goldfinch\Component\Team\Admin\TeamAdmin:
 
 Goldfinch\Component\Team\Pages\Nest\Team:
   icon_class: "bi-person-badge-fill"
+
+Goldfinch\Component\Team\Pages\Nest\TeamByRole:
+  icon_class: "bi-inboxes"
 
 Goldfinch\Component\Team\Blocks\TeamBlock:
   icon: "bi-person-badge-fill"

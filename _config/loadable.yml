@@ -1,0 +1,20 @@
+---
+Name: goldfinch-component-team-loadable
+After: "goldfinch/loadable"
+---
+Goldfinch\Loadable\Loadable:
+  loadable:
+    Goldfinch\Component\Team\Models\Nest\TeamItem:
+      initial_loaded: 10
+      per_each_load: 10
+    Goldfinch\Component\Team\Models\Nest\TeamRole:
+      initial_loaded: 10
+      per_each_load: 10
+
+Goldfinch\Component\Team\Models\Nest\TeamItem:
+  extensions:
+    - Goldfinch\Loadable\Extensions\LoadableExtension
+
+Goldfinch\Component\Team\Models\Nest\TeamRole:
+  extensions:
+    - Goldfinch\Loadable\Extensions\LoadableExtension

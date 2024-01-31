@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-team-harvest
+After: "goldfinch/harvest"
+---
+Goldfinch\Harvest\Harvest:
+  harvesters:
+    team: Goldfinch\Component\Team\Harvest\TeamHarvest

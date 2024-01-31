@@ -1,6 +1,6 @@
 <h1>$Title</h1>
-<% include Goldfinch/Component/Team/Partials/TeamFilter %>
+<% include Goldfinch/Nest/Partials/Filter %>
 <%-- To display paginated list: --%>
 <% include Goldfinch/Nest/Partials/List %>
 <%-- To display loadable list: --%>
-<%-- $Loadable(Goldfinch\Component\Team\Models\Nest\TeamItem) --%>
+<%-- $Loadable(Goldfinch\Component\Team\Models\Nest\TeamRole) --%>

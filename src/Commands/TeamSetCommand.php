@@ -63,7 +63,9 @@ class TeamSetCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'component-team']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-team:templates');
+        $command = $this->getApplication()->find(
+            'vendor:component-team:templates',
+        );
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
