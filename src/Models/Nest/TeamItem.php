@@ -58,6 +58,12 @@ class TeamItem extends NestedObject
         'Image.CMSThumbnail' => 'Image',
     ];
 
+    private static $requiredTitle = false;
+
+    private static $searchableListFields = [
+        'Title', 'FirstName', 'LastName', 'About',
+    ];
+
     public function fielder(Fielder $fielder): void
     {
         $fielder->require(['FirstName', 'LastName']);
@@ -66,7 +72,7 @@ class TeamItem extends NestedObject
 
         $fielder->fields([
             'Root.Main' => [
-                $fielder->string('Title'),
+                // $fielder->string('Title'),
                 $fielder->string('FirstName'),
                 $fielder->string('LastName'),
                 // $fielder->phone('Phone'),
@@ -91,7 +97,7 @@ class TeamItem extends NestedObject
     {
         parent::onBeforeWrite();
 
-        $this->Title = $this->FirstName + ' ' + $this->LastName;
+        $this->Title = $this->FirstName . ' ' . $this->LastName;
     }
 
     // type : mix | inside | outside
