@@ -11,7 +11,7 @@ class TeamItemMill extends Mill
         $gender = rand(1,1) > 5 ? 'male' : 'female';
 
         return [
-            'Title' => $this->faker->sentence(1),
+            'Title' => $this->faker->sentence(),
             'FirstName' => $this->faker->firstName($gender),
             'LastName' => $this->faker->lastName($gender),
             // 'Phone' => $this->faker->e164PhoneNumber(),
