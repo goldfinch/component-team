@@ -6,10 +6,12 @@
     <% end_with %>
 <% end_if %>
 
-<% if Roles %>
-    <div>Roles:
-        <% loop Roles %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
-    </div>
+<% if not TeamConfig.DisabledRoles %>
+  <% if Roles %>
+      <div>Roles:
+          <% loop Roles %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
+      </div>
+  <% end_if %>
 <% end_if %>
 
 <div style="margin: 1rem 0">$Content</div>

@@ -55,14 +55,36 @@ class TeamItem extends NestedObject
     private static $owns = ['Image', 'Roles'];
 
     private static $summary_fields = [
-        'Image.CMSThumbnail' => 'Image',
+        'Roles.Count' => 'Roles',
     ];
 
-    private static $requiredTitle = false;
+    private static $required_title = false;
 
-    private static $searchableListFields = [
+    private static $searchable_list_fields = [
         'Title', 'FirstName', 'LastName', 'About',
     ];
+
+    public function GridItemSummaryList()
+    {
+        $list = parent::GridItemSummaryList();
+
+        $list['Image'] = $this->Image()->CMSThumbnail();
+
+        return $list;
+    }
+
+    public function summaryFields()
+    {
+        $fields = parent::summaryFields();
+
+        $cfg = TeamConfig::current_config();
+
+        if ($cfg->DisabledRoles) {
+            unset($fields['Roles.Count']);
+        }
+
+        return $fields;
+    }
 
     public function fielder(Fielder $fielder): void
     {

@@ -27,6 +27,10 @@ class TeamRole extends NestedObject
         'Items' => TeamItem::class,
     ];
 
+    private static $summary_fields = [
+        'Items.Count' => 'Members',
+    ];
+
     public function fielder(Fielder $fielder): void
     {
         $fielder->require(['Title']);

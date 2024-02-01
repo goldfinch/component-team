@@ -9,7 +9,7 @@ class TeamByRoleMill extends Mill
     public function factory(): array
     {
         return [
-            'Title' => $this->faker->sentence(3),
+            'Title' => $this->faker->catchPhrase(),
         ];
     }
 }
