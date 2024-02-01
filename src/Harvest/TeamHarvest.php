@@ -25,7 +25,7 @@ class TeamHarvest extends Harvest
 
         TeamRole::mill(5)->make();
 
-        TeamItem::mill(20)->make()->each(function($item) {
+        TeamItem::mill(30)->make()->each(function($item) {
             $roles = TeamRole::get()->shuffle()->limit(rand(0,4));
 
             foreach ($roles as $role) {

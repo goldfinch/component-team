@@ -8,6 +8,7 @@ use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Controller;
 use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Fielder\Traits\FielderTrait;
+use Goldfinch\Component\Team\Configs\TeamConfig;
 use Goldfinch\Component\Team\Pages\Nest\TeamByRole;
 
 class TeamRole extends NestedObject
@@ -47,7 +48,9 @@ class TeamRole extends NestedObject
         if (Controller::has_curr()) {
             $ctrl = Controller::curr();
 
-            return PaginatedList::create($this->Items(), $ctrl->getRequest()); // ->setPageLength(10);
+            $cfg = TeamConfig::current_config();
+
+            return PaginatedList::create($this->Items(), $ctrl->getRequest())->setPageLength($cfg->ItemsPerPage ?? 10);
         }
     }
 

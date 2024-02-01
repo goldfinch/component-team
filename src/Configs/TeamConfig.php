@@ -15,6 +15,7 @@ class TeamConfig extends DataObject implements TemplateGlobalProvider
     private static $table_name = 'TeamConfig';
 
     private static $db = [
+        'ItemsPerPage' => 'Int(10)',
         'DisabledRoles' => 'Boolean',
     ];
 
@@ -22,8 +23,18 @@ class TeamConfig extends DataObject implements TemplateGlobalProvider
     {
         $fielder->fields([
             'Root.Main' => [
+                $fielder->string('ItemsPerPage', 'Items per page')->setDescription('used in paginated/loadable list'),
                 $fielder->checkbox('DisabledRoles', 'Disabled roles'),
             ],
         ]);
+
+        $fielder->validate(['ItemsPerPage' => function($value, $fail) {
+            $value = (int) $value;
+            $min = 1;
+            $max = 100;
+            if (!$value || $value < $min || $value > $max) {
+                $fail('The :attribute must be between '.$min.' and '.$max.'.');
+            }
+        }]);
     }
 }
