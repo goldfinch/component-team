@@ -3,7 +3,9 @@
 namespace Goldfinch\Component\Team\Harvest;
 
 use Goldfinch\Harvest\Harvest;
+use Goldfinch\Blocks\Pages\Blocks;
 use Goldfinch\Component\Team\Pages\Nest\Team;
+use Goldfinch\Component\Team\Blocks\TeamBlock;
 use Goldfinch\Component\Team\Models\Nest\TeamItem;
 use Goldfinch\Component\Team\Models\Nest\TeamRole;
 use Goldfinch\Component\Team\Pages\Nest\TeamByRole;
@@ -32,5 +34,19 @@ class TeamHarvest extends Harvest
                 $item->Roles()->add($role);
             }
         });
+
+        // add one block to Blocks demo page (if it's exists)
+        if (class_exists(Blocks::class)) {
+            $demoBlocks = Blocks::get()->filter('Title', 'Blocks')->first();
+
+            if ($demoBlocks && $demoBlocks->exists() && $demoBlocks->ElementalArea()->exists()) {
+                TeamBlock::mill(1)->make([
+                    'ClassName' => $demoBlocks->ClassName,
+                    'TopPageID' => $demoBlocks->ID,
+                    'ParentID' => $demoBlocks->ElementalArea()->ID,
+                    'Title' => 'Team',
+                ]);
+            }
+        }
     }
 }

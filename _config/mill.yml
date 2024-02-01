@@ -8,3 +8,4 @@ Goldfinch\Mill\Mill:
     Goldfinch\Component\Team\Mills\TeamByRoleMill: Goldfinch\Component\Team\Pages\Nest\TeamByRole
     Goldfinch\Component\Team\Mills\TeamRoleMill: Goldfinch\Component\Team\Models\Nest\TeamRole
     Goldfinch\Component\Team\Mills\TeamItemMill: Goldfinch\Component\Team\Models\Nest\TeamItem
+    Goldfinch\Component\Team\Mills\TeamBlockMill: Goldfinch\Component\Team\Blocks\TeamBlock

@@ -3,6 +3,7 @@
 namespace Goldfinch\Component\Team\Blocks;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Team\Models\Nest\TeamItem;
@@ -10,7 +11,7 @@ use Goldfinch\Component\Team\Models\Nest\TeamRole;
 
 class TeamBlock extends BaseElement
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'TeamBlock';
     private static $singular_name = 'Team';
