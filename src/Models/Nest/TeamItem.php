@@ -88,7 +88,7 @@ class TeamItem extends NestedObject
 
     public function fielder(Fielder $fielder): void
     {
-        $fielder->require(['FirstName', 'LastName']);
+        $fielder->required(['FirstName', 'LastName']);
 
         $fielder->remove(['Title']);
 
