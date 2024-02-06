@@ -2,17 +2,12 @@
 
 namespace Goldfinch\Component\Team\Blocks;
 
-use Goldfinch\Fielder\Fielder;
-use Goldfinch\Mill\Traits\Millable;
-use Goldfinch\Fielder\Traits\FielderTrait;
-use DNADesign\Elemental\Models\BaseElement;
+use Goldfinch\Blocks\Models\BlockElement;
 use Goldfinch\Component\Team\Models\Nest\TeamItem;
 use Goldfinch\Component\Team\Models\Nest\TeamRole;
 
-class TeamBlock extends BaseElement
+class TeamBlock extends BlockElement
 {
-    use FielderTrait, Millable;
-
     private static $table_name = 'TeamBlock';
     private static $singular_name = 'Team';
     private static $plural_name = 'Team';
@@ -23,11 +18,6 @@ class TeamBlock extends BaseElement
     private static $description = '';
     private static $icon = 'font-icon-block-users';
 
-    public function fielder(Fielder $fielder): void
-    {
-        // ..
-    }
-
     public function Items()
     {
         return TeamItem::get();
@@ -36,17 +26,5 @@ class TeamBlock extends BaseElement
     public function Roles()
     {
         return TeamRole::get();
-    }
-
-    public function getSummary()
-    {
-        return $this->getDescription();
-    }
-
-    public function getType()
-    {
-        $default = $this->i18n_singular_name() ?: 'Block';
-
-        return _t(__CLASS__ . '.BlockType', $default);
     }
 }
