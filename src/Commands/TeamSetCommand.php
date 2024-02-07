@@ -17,57 +17,32 @@ class TeamSetCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:admin',
-        );
-        $input = new ArrayInput(['name' => 'TeamAdmin']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:admin');
+        $command->run(new ArrayInput(['name' => 'TeamAdmin']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:config',
-        );
-        $input = new ArrayInput(['name' => 'TeamConfig']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:config');
+        $command->run(new ArrayInput(['name' => 'TeamConfig']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'TeamBlock']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:block');
+        $command->run(new ArrayInput(['name' => 'TeamBlock']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:page',
-        );
-        $input = new ArrayInput(['name' => 'Team']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:page');
+        $command->run(new ArrayInput(['name' => 'Team']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:controller',
-        );
-        $input = new ArrayInput(['name' => 'TeamController']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:controller');
+        $command->run(new ArrayInput(['name' => 'TeamController']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:item',
-        );
-        $input = new ArrayInput(['name' => 'TeamItem']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:item');
+        $command->run(new ArrayInput(['name' => 'TeamItem']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:ext:role',
-        );
-        $input = new ArrayInput(['name' => 'TeamRole']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:ext:role');
+        $command->run(new ArrayInput(['name' => 'TeamRole']), $output);
 
         $command = $this->getApplication()->find('vendor:component-team:config');
-        $input = new ArrayInput(['name' => 'component-team']);
-        $command->run($input, $output);
+        $command->run(new ArrayInput(['name' => 'component-team']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-team:templates',
-        );
-        $input = new ArrayInput([]);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-team:templates');
+        $command->run(new ArrayInput([]), $output);
 
         return Command::SUCCESS;
     }
