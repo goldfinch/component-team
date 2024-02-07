@@ -17,5 +17,5 @@ class TeamBlockExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/teamblock-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

@@ -17,5 +17,5 @@ class TeamRoleExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/teamrole-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

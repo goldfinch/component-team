@@ -17,5 +17,5 @@ class TeamControllerExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/teamcontroller-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }
