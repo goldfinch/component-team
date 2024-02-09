@@ -4,6 +4,10 @@ Name: goldfinch-component-team
 Goldfinch\Component\Team\Admin\TeamAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+Goldfinch\Component\Team\Blocks\TeamBlock:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BaseElementExtension
 ---
 Name: goldfinch-component-team-icon
 Only:
