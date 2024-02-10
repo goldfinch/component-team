@@ -3,11 +3,14 @@
 namespace Goldfinch\Component\Team\Blocks;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Goldfinch\Helpers\Traits\BaseElementTrait;
 use Goldfinch\Component\Team\Models\Nest\TeamItem;
 use Goldfinch\Component\Team\Models\Nest\TeamRole;
 
 class TeamBlock extends BaseElement
 {
+    use BaseElementTrait;
+
     private static $table_name = 'TeamBlock';
     private static $singular_name = 'Team';
     private static $plural_name = 'Team';
