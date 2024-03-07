@@ -2,18 +2,16 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use Goldfinch\Mill\Traits\Millable;
 use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Controller;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Team\Configs\TeamConfig;
 use Goldfinch\Component\Team\Pages\Nest\TeamByRole;
 
 class TeamRole extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -34,13 +32,19 @@ class TeamRole extends NestedObject
         'Items.Count' => 'Members',
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
             'Root.Main' => [$fielder->string('Title')],
         ]);
+
+        return $fields;
     }
 
     public function List()

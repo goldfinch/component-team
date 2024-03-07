@@ -2,14 +2,12 @@
 
 namespace Goldfinch\Component\Team\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Control\Director;
 use Goldfinch\Mill\Traits\Millable;
 use SilverStripe\Control\HTTPRequest;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Team\Admin\TeamAdmin;
 use Goldfinch\Component\Team\Pages\Nest\Team;
 use Goldfinch\Component\Team\Configs\TeamConfig;
@@ -18,7 +16,7 @@ use Goldfinch\Component\Team\Models\Nest\TeamRole;
 
 class TeamItem extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -86,8 +84,12 @@ class TeamItem extends NestedObject
         return $fields;
     }
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['FirstName', 'LastName']);
 
         $fielder->remove(['Title']);
@@ -113,6 +115,8 @@ class TeamItem extends NestedObject
         if ($cfg->DisabledRoles) {
             $fielder->remove('Roles');
         }
+
+        return $fields;
     }
 
     protected function onBeforeWrite()
