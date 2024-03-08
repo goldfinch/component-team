@@ -88,7 +88,7 @@ class TeamItem extends NestedObject
     {
         $fields = parent::getCMSFields();
 
-        $fielder = $fields->fielder($this);
+        $fielder = $this->intFielder($fields)->getFielder();
 
         $fielder->required(['FirstName', 'LastName']);
 
