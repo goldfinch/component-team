@@ -116,6 +116,8 @@ class TeamItem extends NestedObject
             $fielder->remove('Roles');
         }
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 

@@ -44,6 +44,8 @@ class TeamRole extends NestedObject
             'Root.Main' => [$fielder->string('Title')],
         ]);
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 
